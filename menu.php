@@ -104,7 +104,7 @@
                                    ";
                                    break;
                        default:
-                           echo "Your favorite color is neither red, blue, nor green!";
+                           //echo "Your favorite color is neither red, blue, nor green!";
                     }
                     ?>
 
@@ -119,7 +119,17 @@
     			<div class="col-md-10">
     				<div id="maps">
             <img id="maps_img"></img></div>
-            <div> <div id="info"></div> <a href="game.phps"><input type="submit" id="start" style="visibility: hidden" value="Старт"></a></div>
+            <form action="menu.php" method="post">
+            <div> <div id="info"></div> <input type="submit" id="start" style="visibility: hidden" name="start" value="Старт"></div>
+            <input type="hidden" id="hidd" name="hidd" value="">
+          </form>
+          <?php
+          if (isset($_POST['start'])) {
+            $_SESSION['game_level'] = $_POST['hidd'];
+            $ko = $_SESSION['game_level'];
+            echo $ko;
+          }
+           ?>
     			</div>
     		</div>
     	</div>
